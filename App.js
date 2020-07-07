@@ -1,12 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { StyleSheet, View } from "react-native";
+
+import Header from "./components/Header/Header";
+import Total from "./components/Total/Total";
+import Icon from "./components/Icon/Icon";
+import Gallery from "./components/FlatList/Gallery";
+import Nav from "./components/Nav";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Icon style={styles.icon} />
+      <Header style={styles.header} />
+      <Total style={styles.statistic} />
+      <Gallery style={styles.gallery} />
+      <Nav style={styles.nav} />
     </View>
   );
 }
@@ -14,8 +23,15 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "column",
+  },
+  icon: { flex: 0.1 },
+  header: {
+    flex: 0.2,
+  },
+  statistic: { flex: 0.1 },
+  gallery: { flex: 0.5 },
+  nav: {
+    flex: 0.1,
   },
 });
