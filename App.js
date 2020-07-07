@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     flex: 0.2,
   },
   statistic: { flex: 0.1 },
-  gallery: { flex: 0.5 },
+  gallery: { flex: 1 },
   nav: {
     flex: 0.1,
   },

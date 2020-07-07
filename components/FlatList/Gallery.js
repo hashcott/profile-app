@@ -3,41 +3,48 @@ import {
   FlatList,
   Dimensions,
   StyleSheet,
-  ScrollView,
+  SafeAreaView,
   Image,
 } from "react-native";
-import Item from "../FlatList/Item";
 const imgData = [
   { id: "1", imgSource: require("../../assets/1.jpg") },
   { id: "2", imgSource: require("../../assets/2.jpg") },
   { id: "3", imgSource: require("../../assets/3.jpg") },
   { id: "4", imgSource: require("../../assets/4.jpg") },
 ];
+const _renderItem = ({ item }) => {
+  return <Image source={item.imgSource} style={styles.image} />;
+};
 const WIDTH_MC = Dimensions.get("window").width;
 const Gallery = ({ style }) => {
   return (
-    <ScrollView style={{ ...style, ...styles.gallery }}>
+    <SafeAreaView style={{ ...style, ...styles.gallery }}>
       <FlatList
         numColumns={2}
         data={imgData}
-        renderItem={({ item }) => {
-          return (
-            <Item
-              width={WIDTH_MC / 2 - 30}
-              height={Image.resolveAssetSource(item.imgSource).height}
-              image={item.imgSource}
-            />
-          );
-        }}
+        renderItem={_renderItem}
         keyExtractor={(item) => item.id}
       />
-    </ScrollView>
+    </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({
   gallery: {
     marginTop: 20,
     flexDirection: "row",
+  },
+  image: {
+    width: WIDTH_MC / 2 - 30,
+    margin: 15,
+    height: 200,
+    borderRadius: 15,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.23,
+    shadowRadius: 2.62,
   },
 });
 export default Gallery;

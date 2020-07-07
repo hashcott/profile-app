@@ -10,14 +10,18 @@ const Cre = () => {
         Fullstack Developer
       </Text>
       <View style={{ flexDirection: "row", marginTop: 20 }}>
-        <TouchableOpacity>
-          <ButtonCustom style={styles.followBtn}>Follow</ButtonCustom>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <ButtonCustom style={{ backgroundColor: SEND_MESSAGE_COLOR }}>
-            <MaterialCommunityIcons name="send" size={18} color="#fff" />
-          </ButtonCustom>
-        </TouchableOpacity>
+        <ButtonCustom
+          style={styles.followBtn}
+          onPress={() => alert("followed")}
+        >
+          Follow
+        </ButtonCustom>
+        <ButtonCustom
+          style={{ backgroundColor: SEND_MESSAGE_COLOR }}
+          onPress={() => alert("message sended")}
+        >
+          <MaterialCommunityIcons name="send" size={18} color="#fff" />
+        </ButtonCustom>
       </View>
     </View>
   );
